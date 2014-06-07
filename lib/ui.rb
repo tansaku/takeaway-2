@@ -42,7 +42,6 @@ class UI
     client_adds_to(order, menu) # this is a loop
 
     puts proceed_instruction
-
     checkout_process(order)
   end
 
@@ -74,7 +73,7 @@ class UI
     order.add_to_cost_array
 
     puts confirm_total_cost_instruction
-    client_confirms_cost_of(order)
+    client_confirms_cost_of(order) # this is a loop
   end
 
   def client_confirms_cost_of(order)
@@ -86,7 +85,12 @@ class UI
         puts confirm_order_instruction #SMS!!
         return
       else
-        puts decline_order_instruction
+        begin
+          raise RuntimeError
+        rescue
+          puts decline_order_instruction
+          redo
+        end
       end
     end
   end

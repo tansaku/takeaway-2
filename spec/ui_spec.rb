@@ -9,10 +9,11 @@ describe UI do
     expect(ui.header).to eq "********* JULIA'S AWESOME DINER *********\n\n"
   end
 
-  # it 'can display the menu' do
-  #   expect(ui.interactive(menu)).to receive(:menu)
-  # end
-
+  it 'should raise an error if user inputs total cost wrongly' do
+    allow(ui).to receive(:input) { "£1.00" }
+    order = double :order, total_cost: "£8.00"
+    expect{ui.client_confirms_cost_of(order)}.to raise_error RuntimeError
+  end
 
 
 end
