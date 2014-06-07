@@ -22,7 +22,7 @@ describe Order do
     quantity2 = 2
     order.add(dish1, quantity1)
     order.add(dish2, quantity2)
-    expect(order.display).to eq "2x Tomato Soup @ £1.50 each\n2x Chicken Soup @ £5.50 each\n"
+    expect(order.display).to eq "1. 2x Tomato Soup @ £1.50 each\n2. 2x Chicken Soup @ £5.50 each\n"
   end
 
   it 'can calculate the total price' do

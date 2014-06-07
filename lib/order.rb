@@ -9,8 +9,8 @@ class Order
   end
 
   def display
-    contents.map.with_index do |ordered_dish|
-      "#{ordered_dish[:quantity]}x #{ordered_dish[:name]} @ #{ordered_dish[:price]} each\n"
+    contents.map.with_index do |ordered_dish, index|
+      "#{index+1}. #{ordered_dish[:quantity]}x #{ordered_dish[:name]} @ #{ordered_dish[:price]} each\n"
     end.join
   end
 

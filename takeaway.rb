@@ -18,5 +18,6 @@ require './lib/order'
 @menu.add(@dish5)
 
 @order = Order.new
-@order.add(@dish1)
-@order.add(@dish5)
+@order.add(@dish1, 2)
+@order.add(@dish5, 2)
+@order.add_to_cost_array
