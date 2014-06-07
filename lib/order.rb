@@ -4,13 +4,13 @@ class Order
     @contents ||= []
   end
 
-  def add(dish)
-    contents << { name: dish.name, price: dish.price }
+  def add(dish, quantity)
+    contents << { name: dish.name, price: dish.price, quantity: quantity }
   end
 
   def display
     contents.map.with_index do |ordered_dish|
-      "#{ordered_dish[:name]}, #{ordered_dish[:price]}\n"
+      "#{ordered_dish[:quantity]}x #{ordered_dish[:name]} @ #{ordered_dish[:price]} each\n"
     end.join
   end
 
@@ -20,7 +20,7 @@ class Order
 
   def add_to_cost_array
     contents.each do |ordered_dish|
-      cost_array << ordered_dish[:price].slice(1..4).to_f
+      cost_array << ( ordered_dish[:price].slice(1..4).to_f * ordered_dish[:quantity] )
     end
   end
 
