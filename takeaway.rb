@@ -1,3 +1,7 @@
+require 'rubygems' # not necessary with ruby 1.9 but included for completeness
+require 'bundler/setup'
+require 'twilio-ruby'
+
 require './lib/client'
 require './lib/dish'
 require './lib/menu'
@@ -19,8 +23,5 @@ require './lib/ui'
 @menu.add(@dish5)
 
 @order = Order.new
-# @order.add(@dish1, 2)
-# @order.add(@dish5, 2)
-# @order.add_to_cost_array
 
 @ui = UI.new

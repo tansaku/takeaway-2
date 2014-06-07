@@ -24,5 +24,12 @@ describe UI do
     # check with instructors how to implement
   end
 
+  xit 'should get clients name and phone number if total cost is confirmed' do
+    ui.get_client_details
+    stub!(:input).and_return("Julia")
+    expect(client.name).to eq "Julia"
+
+    # check with instructors how to implement
+  end
 
 end
