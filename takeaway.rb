@@ -2,6 +2,13 @@ require 'rubygems' # not necessary with ruby 1.9 but included for completeness
 require 'bundler/setup'
 require 'twilio-ruby'
 
+# My Twilio credentials
+account_sid = 'AC632e1c5c07fe63b8ff585dda3ac085c6'
+auth_token = '61f65f83c67a7174daadedd05a9dfcee'
+
+# set up a client to talk to the Twilio REST API
+@client = Twilio::REST::Client.new account_sid, auth_token
+
 require './lib/client'
 require './lib/dish'
 require './lib/menu'
