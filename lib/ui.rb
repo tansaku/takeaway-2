@@ -1,4 +1,8 @@
+require_relative 'sms'
+
 class UI
+
+  include SMS
 
   def input
     gets.chomp
@@ -9,7 +13,7 @@ class UI
   end
 
   def header
-    "********* JULIA'S AWESOME DINER *********\n\n"
+    "********* JULIA'S SOUP FACTORY **********\n\n"
   end
 
   def footer
@@ -115,9 +119,11 @@ class UI
     print prompt
     phone_number = input
 
-    client = Client.new(name, phone_number)
+    user = Client.new(name, phone_number)
+    time = Time.now
 
     puts confirmation_sent_instruction
+    self.send_sms(user, time)
     exit
   end
 
