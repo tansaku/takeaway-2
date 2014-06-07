@@ -11,7 +11,7 @@ describe Menu do
   it 'can add dishes' do
     dish = double :dish, name: "Tomato Soup", price: "£1.50"
     menu.add(dish)
-    expect(menu.contents).to eq [{name: "Tomato Soup", price: "£1.50"}]
+    expect(menu.contents).to eq [{dish: dish, name: "Tomato Soup", price: "£1.50"}]
   end
 
   it 'can display menu items' do

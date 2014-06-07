@@ -2,6 +2,7 @@ require './lib/client'
 require './lib/dish'
 require './lib/menu'
 require './lib/order'
+require './lib/ui'
 
 @menu = Menu.new
 
@@ -18,6 +19,8 @@ require './lib/order'
 @menu.add(@dish5)
 
 @order = Order.new
-@order.add(@dish1, 2)
-@order.add(@dish5, 2)
-@order.add_to_cost_array
+# @order.add(@dish1, 2)
+# @order.add(@dish5, 2)
+# @order.add_to_cost_array
+
+@ui = UI.new

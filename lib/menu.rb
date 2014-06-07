@@ -5,7 +5,7 @@ class Menu
   end
 
   def add(dish)
-    contents << { name: dish.name, price: dish.price }
+    contents << { dish: dish, name: dish.name, price: dish.price }
   end
 
   def display
