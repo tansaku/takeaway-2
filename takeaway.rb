@@ -1,6 +1,7 @@
 require './lib/client'
 require './lib/dish'
 require './lib/menu'
+require './lib/order'
 
 @menu = Menu.new
 
@@ -15,3 +16,7 @@ require './lib/menu'
 @menu.add(@dish3)
 @menu.add(@dish4)
 @menu.add(@dish5)
+
+@order = Order.new
+@order.add(@dish1)
+@order.add(@dish5)
