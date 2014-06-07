@@ -82,15 +82,10 @@ class UI
       user_thinks_cost_is = input
       
       if user_thinks_cost_is == order.total_cost
-        puts confirm_order_instruction #SMS!!
-        return
+        puts cost_confirmed_instruction #SMS!!
+        get_client_details
       else
-        begin
-          raise RuntimeError
-        rescue
-          puts decline_order_instruction
-          redo
-        end
+        raise RuntimeError.new(decline_order_instruction)
       end
     end
   end
@@ -103,12 +98,39 @@ class UI
     "\nPlease confirm the total cost you expect to pay e.g. £5.00"
   end
 
-  def confirm_order_instruction
-    "\nThank you! Your order has been confirmed!"
+  def cost_confirmed_instruction
+    "\nThank you! We will now need your name and phone number to send confirmation of your order."
   end
 
   def decline_order_instruction
-    "\nThat is not the correct amount, please check your calculation again."
+    "\nSorry, that is not the correct amount."
+  end
+
+  def get_client_details
+    puts get_name_instruction
+    print prompt
+    name = input
+
+    puts get_phone_number_instruction
+    print prompt
+    phone_number = input
+
+    client = Client.new(name, phone_number)
+
+    puts confirmation_sent_instruction
+    exit
+  end
+
+  def get_name_instruction
+    "\nWhat is your name?"
+  end
+
+  def get_phone_number_instruction
+    "\nWhat is your phone number?"
+  end
+
+  def confirmation_sent_instruction
+    "\nThank you. You will receive a text message shortly with a confirmation of your order."
   end
 
 end
