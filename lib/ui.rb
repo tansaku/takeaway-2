@@ -54,7 +54,19 @@ class UI
       print prompt
       
       dish_name = input
+      
       break if dish_name == 'checkout'
+      
+      check_array = []
+      menu.contents.each do |dishes|
+        check = dishes.has_value?(dish_name)
+        check_array << check
+      end
+        
+      if check_array.all? { |item| item == false }
+        puts wrong_dish_instruction
+        redo
+      end
 
       puts quantity_instruction
       print prompt
@@ -68,6 +80,10 @@ class UI
 
       puts anything_else_instruction
     end
+  end
+
+  def wrong_dish_instruction
+    "Sorry, this dish does not exist, please try again"
   end
 
   def checkout_process(order)
