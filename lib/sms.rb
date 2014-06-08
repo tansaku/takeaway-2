@@ -7,13 +7,16 @@ module SMS
   def send_sms(user, time)
 
     # My Twilio credentials
-    account_sid = 'AC632e1c5c07fe63b8ff585dda3ac085c6'
-    auth_token = '61f65f83c67a7174daadedd05a9dfcee'
+    # account_sid = ENV["TWILIO_SID"]
+    # auth_token = ENV["TWILIO_AUTHTOKEN"]
+
+    account_sid = `echo $TWILIO_SID`
+    auth_token = `echo $TWILIO_AUTHTOKEN`
 
     # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new account_sid, auth_token
      
-    from = "+441275595079" # Your Twilio number
+    from = `echo $TWILIO_NO` # Your Twilio number
 
     @client.account.messages.create(
       :from => from,
