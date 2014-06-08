@@ -2,8 +2,21 @@ GEM
   remote: https://rubygems.org/
   specs:
     builder (3.2.2)
+    diff-lcs (1.2.5)
     jwt (1.0.0)
     multi_json (1.10.1)
+    rspec (3.0.0)
+      rspec-core (~> 3.0.0)
+      rspec-expectations (~> 3.0.0)
+      rspec-mocks (~> 3.0.0)
+    rspec-core (3.0.0)
+      rspec-support (~> 3.0.0)
+    rspec-expectations (3.0.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.0.0)
+    rspec-mocks (3.0.1)
+      rspec-support (~> 3.0.0)
+    rspec-support (3.0.0)
     twilio-ruby (3.11.5)
       builder (>= 2.1.2)
       jwt (>= 0.1.2)
@@ -13,4 +26,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rspec (~> 3.0.0)
   twilio-ruby (~> 3.11)

@@ -6,7 +6,7 @@ describe UI do
   let(:menu) { Menu.new }
 
   it 'displays an introductory message' do
-    expect(ui.header).to eq "********* JULIA'S AWESOME DINER *********\n\n"
+    expect(ui.header).to eq "********* JULIA'S SOUP FACTORY **********\n\n"
   end
 
   it 'should raise an error if user inputs total cost wrongly' do
