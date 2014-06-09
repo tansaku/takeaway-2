@@ -19,7 +19,7 @@ module SMS
       :to => user.phone_number,
       :body => "Thank you! Your order was placed and will be delivered before #{ (time + ( 1*60*60 )).strftime("%H:%M:%S") }"
       )
-    puts "Message has now been sent to #{user.name}!"
+    return "Message has now been sent to #{user.name}!"
   end 
 
 end

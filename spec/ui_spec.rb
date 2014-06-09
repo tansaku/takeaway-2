@@ -17,6 +17,13 @@ describe UI do
     # check with instructors how to remove > from rspec test
   end
 
+  xit 'should be told to send an sms when total cost is confirmed' do
+    ui.get_client_details
+    stub!(:input).and_return("Julia")
+    stub!(:input).and_return("+447789223025")
+    expect(ui.get_client_details).to receive(:send_sms) #eq "Message has now been sent to #{user.name}!"
+  end
+
   xit 'should initialise a new Client object if total cost is confirmed' do
     ui.get_client_details
     expect(client.class).to eq Client
